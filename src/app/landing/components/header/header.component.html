@@ -1,1 +1,8 @@
-<p>header works!</p>
+<header class="container d-flex justify-content-between align-items-center" [class.glass]="hasBlur">
+  <div class="d-flex gap-4">
+    @for (item of menu; track item.link) {
+      <a href="{{ item.link }}">{{ item.name }}</a>
+    }
+  </div>
+  <a href="tel:{{ digits }}">{{ phone }}</a>
+</header>

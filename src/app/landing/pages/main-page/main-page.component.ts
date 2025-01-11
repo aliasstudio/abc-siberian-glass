@@ -5,12 +5,21 @@ import { ConsultationComponent } from '@app/landing/components/consultation/cons
 import { GoodsComponent } from '@app/landing/components/goods/goods.component';
 import { WorksComponent } from '@app/landing/components/works/works.component';
 import { StepsComponent } from '@app/landing/components/steps/steps.component';
+import { MainComponent } from '@app/landing/components/main/main.component';
 
 @Component({
   selector: 'app-main-page',
   templateUrl: './main-page.component.html',
   styleUrl: './main-page.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [AboutComponent, PartnersComponent, ConsultationComponent, GoodsComponent, WorksComponent, StepsComponent],
+  imports: [
+    MainComponent,
+    AboutComponent,
+    GoodsComponent,
+    ConsultationComponent,
+    StepsComponent,
+    WorksComponent,
+    PartnersComponent,
+  ],
 })
 export default class MainPageComponent {}

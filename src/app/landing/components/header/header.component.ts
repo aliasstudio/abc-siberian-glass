@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -7,4 +7,37 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [],
 })
-export class HeaderComponent {}
+export class HeaderComponent {
+  hasBlur = false;
+
+  menu = [
+    {
+      name: 'О нас',
+      link: '#about',
+    },
+    {
+      name: 'Товары',
+      link: '#goods',
+    },
+    {
+      name: 'Этапы работы',
+      link: '#steps',
+    },
+    {
+      name: 'Наши работы',
+      link: '#works',
+    },
+    {
+      name: 'Партнеры',
+      link: '#partners',
+    },
+  ];
+
+  phone = '+7 (993) 935-24-67';
+  digits = this.phone.replace(/[^+\d]/g, '');
+
+  @HostListener('window:scroll', ['$event'])
+  onScroll(): void {
+    this.hasBlur = window.scrollY >= 170;
+  }
+}
