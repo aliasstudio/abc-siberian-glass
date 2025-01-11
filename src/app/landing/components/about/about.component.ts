@@ -1,12 +1,13 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { TextBlockComponent } from '@app/shared/text-block/text-block.component';
+import { TextBlockComponent } from '@app/shared/components/text-block/text-block.component';
+import { PlaceholderComponent } from '@app/shared/components/placeholder/placeholder.component';
 
 @Component({
   selector: 'app-about',
   templateUrl: './about.component.html',
   styleUrl: './about.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [TextBlockComponent],
+  imports: [TextBlockComponent, PlaceholderComponent],
 })
 export class AboutComponent {
   blocks = [

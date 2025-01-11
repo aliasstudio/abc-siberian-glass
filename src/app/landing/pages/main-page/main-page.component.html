@@ -1,7 +1,37 @@
 <app-main />
-<app-about id="about" />
-<app-goods id="goods" />
-<app-steps id="steps" />
-<app-consultation />
-<app-works id="works" />
-<app-partners id="partners" />
+
+@defer {
+  <app-about id="about" />
+} @placeholder {
+  <div></div>
+}
+
+@defer {
+  <app-goods id="goods" />
+} @placeholder {
+  <div></div>
+}
+
+@defer {
+  <app-steps id="steps" />
+} @placeholder {
+  <div></div>
+}
+
+@defer {
+  <app-consultation />
+} @placeholder {
+  <div></div>
+}
+
+@defer {
+  <app-works id="works" />
+} @placeholder {
+  <div></div>
+}
+
+@defer {
+  <app-partners id="partners" />
+} @placeholder {
+  <div></div>
+}

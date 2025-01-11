@@ -2,7 +2,11 @@
   <h1>О нас</h1>
   <div class="about d-flex justify-content-center flex-wrap py-4">
     @for (item of blocks; track item.id) {
-      <app-text-block [icon]="item.icon" [text]="item.text" />
+      @defer {
+        <app-text-block [icon]="item.icon" [text]="item.text" />
+      } @loading (after 2s; minimum 1.5s) {
+        <app-placeholder [size]="576" />
+      }
     }
   </div>
 </section>

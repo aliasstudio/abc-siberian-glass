@@ -1,3 +1,9 @@
 <app-header />
+
 <router-outlet />
-<app-footer />
+
+@defer {
+  <app-footer />
+} @placeholder {
+  <div></div>
+}
