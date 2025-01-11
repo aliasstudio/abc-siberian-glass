@@ -273,7 +273,10 @@ const tsConfig = [
             '[conventional-private-methods]',
           ],
           groups: {
-            'host-decorators': [{ groupByDecorator: '/^Host?.+/' }],
+            'host-decorators': [
+              { type: 'property', groupByDecorator: '/^Host?.+/' },
+              { type: 'method', groupByDecorator: '/^Host?.+/' },
+            ],
             'child-decorators': [{ groupByDecorator: '/^.+Child?.+/' }],
             'input-decorators': [{ groupByDecorator: '/^Input?.+/' }],
             'output-decorators': [{ groupByDecorator: '/^Output?.+/' }],

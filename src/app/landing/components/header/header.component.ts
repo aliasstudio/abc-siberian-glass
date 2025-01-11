@@ -9,6 +9,7 @@ import { ChangeDetectionStrategy, Component, HostListener } from '@angular/core'
 })
 export class HeaderComponent {
   hasBlur = false;
+  skipFirst = false;
 
   menu = [
     {
@@ -38,6 +39,7 @@ export class HeaderComponent {
 
   @HostListener('window:scroll', ['$event'])
   onScroll(): void {
-    this.hasBlur = window.scrollY >= 170;
+    this.hasBlur = window.scrollY >= 150;
+    this.skipFirst = window.scrollY >= window.innerHeight - 100;
   }
 }

@@ -1,4 +1,8 @@
-<header class="container d-flex justify-content-between align-items-center" [class.glass]="hasBlur">
+<header
+  class="container d-flex justify-content-between align-items-center"
+  [class.glass]="hasBlur"
+  [class.dark-text]="skipFirst"
+>
   <div class="d-flex gap-4">
     @for (item of menu; track item.link) {
       <a href="{{ item.link }}">{{ item.name }}</a>

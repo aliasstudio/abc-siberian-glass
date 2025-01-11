@@ -1,0 +1,14 @@
+@use "src/styles/_variables.scss" as vars;
+
+.about {
+  gap: vars.$default-gap * 3;
+
+  > app-text-block {
+    width: 100%;
+    max-width: 576px;
+
+    &:last-child {
+      grid-column: span 2;
+    }
+  }
+}

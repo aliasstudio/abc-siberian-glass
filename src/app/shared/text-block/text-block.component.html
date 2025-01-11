@@ -1,4 +1,4 @@
-<div class="d-flex flex-column">
-  <img alt="icon" src="{{ iconLink() }}" />
-  <span class="mt-2">{{ text() }}</span>
+<div class="block d-flex flex-column align-items-center">
+  <img alt="icon" [ngSrc]="'assets/icons/' + icon()" [width]="size()" [height]="size()" />
+  <span class="mt-4">{{ text() }}</span>
 </div>

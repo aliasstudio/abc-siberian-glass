@@ -10,18 +10,38 @@ header {
   margin: 16px 0;
   font-size: 24px;
   font-weight: 600;
-  border-radius: 16px;
-  transition: background-color .3s ease-in-out, box-shadow .3s ease-in-out;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    z-index: -1;
+    width: calc(100% - #{vars.$default-padding});
+    height: 100%;
+    border-radius: vars.$default-radius;
+    transform: translateX(-50%);
+    transition: background-color .3s ease-in-out, box-shadow .3s ease-in-out;
+  }
+
+  &.glass {
+    &:before {
+      --blur: 6.5px;
+      background-color: rgba(255, 255, 255, 0.14);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(var(--blur));
+      -webkit-backdrop-filter: blur(var(--blur));
+    }
+  }
+
+  &.dark-text {
+    a {
+      color: vars.$text-color;
+    }
+  }
 
   a {
     color: vars.$beige;
+    transition: color .3s ease-in-out;
   }
-}
-
-.glass {
-  --blur: 6.5px;
-  background-color: rgba(255, 255, 255, 0.14);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(var(--blur));
-  -webkit-backdrop-filter: blur(var(--blur));
 }

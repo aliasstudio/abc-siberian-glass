@@ -8,4 +8,22 @@ import { TextBlockComponent } from '@app/shared/text-block/text-block.component'
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [TextBlockComponent],
 })
-export class AboutComponent {}
+export class AboutComponent {
+  blocks = [
+    {
+      id: 'expand',
+      icon: 'expand.svg',
+      text: 'В ABC Siberian Glass мы видим в стекле возможность расширить границы привычного пространства, добавляя свет и свободу.',
+    },
+    {
+      id: 'appearance',
+      icon: 'appearance.svg',
+      text: 'Наши конструкции меняют восприятие интерьеров, превращая их в живое взаимодействие архитектуры и окружающего мира.',
+    },
+    {
+      id: 'idea',
+      icon: 'idea.svg',
+      text: 'Мы создаём не просто стеклянные решения, а пространство, где каждая деталь отражает гармонию и прозрачность современных идей.',
+    },
+  ];
+}
