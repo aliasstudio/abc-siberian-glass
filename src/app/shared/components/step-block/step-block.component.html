@@ -1,0 +1,7 @@
+<div class="block d-flex flex-column gap-1">
+  <span class="number">{{ number() }}</span>
+  <span class="title mb-2">{{ title() }}</span>
+  @if (description(); as desc) {
+    <span class="description">{{ desc }}</span>
+  }
+</div>

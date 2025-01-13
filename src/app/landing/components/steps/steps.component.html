@@ -1,3 +1,12 @@
 <section class="container">
   <h1>Этапы работы</h1>
+  <div class="steps d-flex justify-content-center flex-wrap py-4">
+    @for (item of blocks; track item.id) {
+      @defer {
+        <app-step-block [number]="$index + 1" [title]="item.title" [description]="item.text" [altColor]="$odd" />
+      } @loading (after 2s; minimum 1.5s) {
+        <app-placeholder [size]="380" />
+      }
+    }
+  </div>
 </section>

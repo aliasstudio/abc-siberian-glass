@@ -1,0 +1,35 @@
+@use "src/styles/_variables.scss" as vars;
+
+:host {
+  &.alt-color {
+    .block {
+      background-color: vars.$green;
+      color: vars.$beige;
+    }
+  }
+}
+
+.block {
+  width: 100%;
+  height: 100%;
+  padding: 2rem;
+  border-radius: vars.$default-radius;
+  border: 1px solid vars.$green;
+  color: vars.$green;
+  text-align: left;
+  line-height: 1.2;
+
+  .number {
+    font-size: 6rem;
+    line-height: 1;
+  }
+
+  .title {
+    font-size: 1.5rem;
+    font-weight: 800;
+  }
+
+  .description {
+    font-size: 1.25rem;
+  }
+}

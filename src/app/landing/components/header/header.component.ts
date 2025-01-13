@@ -5,7 +5,6 @@ import { ChangeDetectionStrategy, Component, HostListener } from '@angular/core'
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [],
 })
 export class HeaderComponent {
   hasBlur = false;
