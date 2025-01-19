@@ -24,20 +24,12 @@ header {
     transition: background-color .3s ease-in-out, box-shadow .3s ease-in-out;
   }
 
-  &.glass {
-    &:before {
-      --blur: 6.5px;
-      background-color: rgba(255, 255, 255, 0.14);
-      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-      backdrop-filter: blur(var(--blur));
-      -webkit-backdrop-filter: blur(var(--blur));
-    }
+  &.glass:before {
+    @include vars.glass();
   }
 
-  &.dark-text {
-    a {
-      color: vars.$text-color;
-    }
+  &.dark-text a {
+    color: vars.$text-color;
   }
 
   a {

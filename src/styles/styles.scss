@@ -103,7 +103,8 @@ section {
   border: none;
   background-color: vars.$green;
   color: vars.$beige;
-  padding: 1rem 3rem;
+  width: max-content;
+  padding: 0.85rem 3rem;
   font-size: 1.5rem;
   line-height: 1;
   border-radius: vars.$default-radius * 1.5;
@@ -112,4 +113,8 @@ section {
     background-color: vars.$beige;
     color: vars.$green;
   }
+}
+
+.form-control:focus {
+  box-shadow: none;
 }

@@ -4,3 +4,21 @@
   display: block;
   background-color: vars.$green;
 }
+
+.consultation {
+  border-radius: vars.$default-radius * 1.5;
+  padding: 2.5rem;
+  margin: 3rem 0;
+  @include vars.glass();
+
+  &__controls {
+    width: 100%;
+    max-width: 600px;
+
+    input {
+      border: none;
+      background-color: vars.$beige;
+      font-size: 1.5rem;
+    }
+  }
+}
