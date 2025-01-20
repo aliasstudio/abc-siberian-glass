@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, HostListener } from '@angular/core';
+import { PHONE, PHONE_DIGITS } from '@app/shared/utils/constants';
 
 @Component({
   selector: 'app-header',
@@ -7,6 +8,9 @@ import { ChangeDetectionStrategy, Component, HostListener } from '@angular/core'
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeaderComponent {
+  readonly phone = PHONE;
+  readonly digits = PHONE_DIGITS;
+
   hasBlur = false;
   skipFirst = false;
 
@@ -32,9 +36,6 @@ export class HeaderComponent {
       link: '#partners',
     },
   ];
-
-  phone = '+7 (993) 935-24-67';
-  digits = this.phone.replace(/[^+\d]/g, '');
 
   @HostListener('window:scroll', ['$event'])
   onScroll(): void {
