@@ -30,15 +30,15 @@ export class FooterComponent {
 
   social = [
     {
-      icon: 'vk',
-      link: 'vk.com',
-    },
-    {
-      icon: 'tg',
+      icon: 'tg.svg',
       link: 'tg.com',
     },
     {
-      icon: 'whatsapp',
+      icon: 'vk.svg',
+      link: 'vk.com',
+    },
+    {
+      icon: 'whatsapp.svg',
       link: 'whatsapp.com',
     },
   ];
