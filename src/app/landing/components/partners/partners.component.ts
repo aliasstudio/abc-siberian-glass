@@ -1,8 +1,8 @@
-import type { ElementRef, OnInit } from '@angular/core';
+import type { AfterViewInit, ElementRef } from '@angular/core';
 import { ChangeDetectionStrategy, Component, CUSTOM_ELEMENTS_SCHEMA, viewChild } from '@angular/core';
-import type { SwiperContainer } from 'swiper/element/bundle';
-// @ts-ignore has exported
+// @ts-ignore swiper
 import type { SwiperOptions } from 'swiper';
+import type { SwiperContainer } from 'swiper/element';
 
 @Component({
   selector: 'app-partners',
@@ -11,43 +11,42 @@ import type { SwiperOptions } from 'swiper';
   changeDetection: ChangeDetectionStrategy.OnPush,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class PartnersComponent implements OnInit {
+export class PartnersComponent implements AfterViewInit {
   swiper = viewChild<ElementRef<SwiperContainer>>('swiperContainer');
 
   slides = [
     {
       title: 'РЖД',
-      image: 'assets/images/partners/rzd.svg',
+      link: 'assets/images/partners/rzd.svg',
     },
     {
       title: 'СИБУР',
-      image: 'assets/images/partners/sibur.png',
+      link: 'assets/images/partners/sibur.png',
     },
     {
       title: 'World Class',
-      image: 'assets/images/partners/world.svg',
+      link: 'assets/images/partners/world.svg',
     },
     {
       title: 'Брусника',
-      image: 'assets/images/partners/brusnika.png',
+      link: 'assets/images/partners/brusnika.png',
     },
     {
       title: 'АРМАДА',
-      image: 'assets/images/partners/armada.svg',
+      link: 'assets/images/partners/armada.svg',
     },
     {
       title: 'Мострострой 11',
-      image: 'assets/images/partners/most.png',
+      link: 'assets/images/partners/most.png',
     },
     {
       title: 'Мать и дитя',
-      image: 'assets/images/partners/mother.png',
+      link: 'assets/images/partners/mother.png',
     },
   ];
 
-  ngOnInit(): void {
+  ngAfterViewInit(): void {
     const config: SwiperOptions = {
-      direction: 'horizontal',
       slidesPerView: 3,
       spaceBetween: 20,
       grabCursor: true,
@@ -55,9 +54,18 @@ export class PartnersComponent implements OnInit {
       observer: true,
       observeParents: true,
       observeSlideChildren: true,
-      loop: true,
+      autoplay: {
+        delay: 5000,
+      },
+      navigation: {
+        prevEl: '.partners_slider .slider-navigation__prev',
+        nextEl: '.partners_slider .slider-navigation__next',
+      },
+      lazyPreloadPrevNext: 2,
     };
+    const swiper = this.swiper().nativeElement;
 
-    Object.assign(this.swiper().nativeElement, config);
+    Object.assign(swiper, config);
+    swiper.initialize();
   }
 }

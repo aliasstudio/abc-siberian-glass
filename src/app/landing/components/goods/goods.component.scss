@@ -1,0 +1,6 @@
+@use "src/styles/_variables.scss" as vars;
+
+.slide {
+  border: 1px solid vars.$text-color;
+  border-radius: vars.$default-radius;
+}

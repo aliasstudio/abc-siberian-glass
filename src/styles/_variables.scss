@@ -10,7 +10,7 @@ $default-padding: 32px;
 $default-blur: 6.5px;
 $section-padding: 16px;
 
-$bg-color: #E0D8CF;
+$bg-color: #E0D8CF; //#fffbec
 $text-color: #19291F;
 $green: #1A5623;
 $beige: #FFF1BE;
@@ -27,4 +27,6 @@ $white: #E0D8CF;
   --bs-primary-rgb: #{functions.to-rgb($green)};
   --bs-secondary-rgb: #{functions.to-rgb($beige)};
   --bs-border-radius-lg: #{$default-radius * 1.5};
+  --swiper-theme-color: #{$green} !important;
+  --swiper-preloader-color: #{$green} !important;
 }

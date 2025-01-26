@@ -1,6 +1,37 @@
 <section class="container">
   <h1>Наши работы</h1>
-  <a href="#consultation">
-    <button appMainButton>Оставить заявку</button>
-  </a>
+  <div class="swiper__wrapper">
+    <swiper-container #swiperContainer init="false">
+      @for (slide of slides; track slide.title) {
+        <swiper-slide lazy="true">
+          <div class="d-flex align-items-center justify-content-center slide">
+            <div class="d-flex align-items-center justify-content-center image-wrapper">
+              <img loading="lazy" src="{{ slide.link }}" alt="{{ slide.title }}" />
+            </div>
+          </div>
+        </swiper-slide>
+      }
+    </swiper-container>
+    <div class="slider-navigation works_slider">
+      <div class="slider-navigation__prev">
+        <svg width="81" height="16" viewBox="0 0 81 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M0.292892 7.2929C-0.0976334 7.68342 -0.0976333 8.31659 0.292893 8.70711L6.65685 15.0711C7.04738 15.4616 7.68054 15.4616 8.07107 15.0711C8.46159 14.6805 8.46159 14.0474 8.07107 13.6569L2.41422 8.00001L8.07107 2.34315C8.46159 1.95263 8.46159 1.31946 8.07107 0.928939C7.68054 0.538414 7.04738 0.538414 6.65685 0.928939L0.292892 7.2929ZM81 7L1 7.00001L1 9.00001L81 9L81 7Z"
+            fill="#1A5623"
+          />
+        </svg>
+      </div>
+      <div class="slider-navigation__next">
+        <svg width="81" height="16" viewBox="0 0 81 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M80.7071 7.2929C81.0976 7.68342 81.0976 8.31659 80.7071 8.70711L74.3431 15.0711C73.9526 15.4616 73.3195 15.4616 72.9289 15.0711C72.5384 14.6805 72.5384 14.0474 72.9289 13.6569L78.5858 8.00001L72.9289 2.34315C72.5384 1.95263 72.5384 1.31946 72.9289 0.928939C73.3195 0.538414 73.9526 0.538414 74.3431 0.928939L80.7071 7.2929ZM8.74228e-08 7L80 7.00001L80 9.00001L-8.74228e-08 9L8.74228e-08 7Z"
+            fill="#1A5623"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div class="d-flex align-items-center justify-content-center">
+    <button appMainButton (click)="scrollTo('consultation')">Оставить заявку</button>
+  </div>
 </section>

@@ -1,37 +1,6 @@
 @use "src/styles/_variables.scss" as vars;
 
-section {
-  position: relative;
-  padding-bottom: 32px;
-
-  swiper-container {
-    margin-top: 2.5rem;
-    margin-bottom: 1rem;
-
-
-    .slide {
-      height: 148px;
-      margin-bottom: 1px;
-      border: 1px solid vars.$text-color;
-      border-radius: vars.$default-radius;
-    }
-  }
-
-  .slider-navigation {
-    display: flex;
-    justify-content: space-between;
-    position: absolute;
-    top: calc(50% + 32px);
-    left: 50%;
-    width: calc(100% + 80px* 2);
-    transform: translate(-50%, -50%);
-
-    @media(max-width: 1450px) {
-      display: none;
-    }
-
-    &__prev, &__next {
-      cursor: pointer;
-    }
-  }
+.slide {
+  border: 1px solid vars.$text-color;
+  border-radius: vars.$default-radius;
 }
