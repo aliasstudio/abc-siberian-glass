@@ -118,3 +118,10 @@ section {
 .form-control:focus {
   box-shadow: none;
 }
+
+swiper-slide {
+  img {
+    width: calc(100% - #{vars.$default-padding} * 2);
+    max-height: 100%;
+  }
+}

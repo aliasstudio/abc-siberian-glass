@@ -16,24 +16,32 @@ export class PartnersComponent implements OnInit {
 
   slides = [
     {
-      id: 1,
-      title: 'World Class',
-      image: 'assets/images/world-class.png',
+      title: 'РЖД',
+      image: 'assets/images/partners/rzd.svg',
     },
     {
-      id: 2,
       title: 'СИБУР',
-      image: 'assets/images/sibur.png',
+      image: 'assets/images/partners/sibur.png',
     },
     {
-      id: 3,
-      title: 'Брусника',
-      image: 'assets/images/brusnika.png',
+      title: 'World Class',
+      image: 'assets/images/partners/world.svg',
     },
     {
-      id: 4,
       title: 'Брусника',
-      image: 'assets/images/brusnika.png',
+      image: 'assets/images/partners/brusnika.png',
+    },
+    {
+      title: 'АРМАДА',
+      image: 'assets/images/partners/armada.svg',
+    },
+    {
+      title: 'Мострострой 11',
+      image: 'assets/images/partners/most.png',
+    },
+    {
+      title: 'Мать и дитя',
+      image: 'assets/images/partners/mother.png',
     },
   ];
 
