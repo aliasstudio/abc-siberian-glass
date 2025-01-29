@@ -2,10 +2,9 @@
 
 .swiper__wrapper {
   .slide {
+    padding-bottom: calc(16 / 9 * 100%);
     position: relative;
-    height: 520px;
     overflow: hidden;
-    margin-bottom: 1px;
 
     .image-wrapper {
       position: absolute;

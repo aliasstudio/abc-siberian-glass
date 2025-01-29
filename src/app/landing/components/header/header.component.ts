@@ -21,7 +21,7 @@ export class HeaderComponent {
     },
     {
       name: 'Товары',
-      link: '#goods',
+      link: '#products',
     },
     {
       name: 'Этапы работы',

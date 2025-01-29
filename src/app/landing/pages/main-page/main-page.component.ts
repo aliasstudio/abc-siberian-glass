@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { AboutComponent } from '@app/landing/components/about/about.component';
 import { PartnersComponent } from '@app/landing/components/partners/partners.component';
 import { ConsultationComponent } from '@app/landing/components/consultation/consultation.component';
-import { GoodsComponent } from '@app/landing/components/goods/goods.component';
+import { ProductsComponent } from '@app/landing/components/products/products.component';
 import { WorksComponent } from '@app/landing/components/works/works.component';
 import { StepsComponent } from '@app/landing/components/steps/steps.component';
 import { MainComponent } from '@app/landing/components/main/main.component';
@@ -15,7 +15,7 @@ import { MainComponent } from '@app/landing/components/main/main.component';
   imports: [
     MainComponent,
     AboutComponent,
-    GoodsComponent,
+    ProductsComponent,
     ConsultationComponent,
     StepsComponent,
     WorksComponent,

@@ -108,10 +108,27 @@ section {
   font-size: 1.5rem;
   line-height: 1;
   border-radius: vars.$default-radius * 1.5;
+  transition: all .3s cubic-bezier(0.4, 0, 0.2, 1);;
+
+  &:hover {
+    background-color: #266c29;
+    transform: translateY(-1px);
+    box-shadow:
+      0 1px 12px rgba(26, 86, 35, 0.25),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+  }
 
   &__alt {
     background-color: vars.$beige;
     color: vars.$green;
+
+    &:hover {
+      background-color: #FFE6A4;
+      transform: translateY(-1px);
+      box-shadow:
+        0 1px 12px rgba(26, 86, 35, 0.25),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+    }
   }
 }
 
@@ -122,6 +139,7 @@ section {
 .swiper__wrapper {
   position: relative;
   margin-bottom: 32px;
+  margin-left: 2px;
 
   swiper-container {
     margin-top: 2.5rem;

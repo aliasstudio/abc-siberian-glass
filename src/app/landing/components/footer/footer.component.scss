@@ -14,6 +14,10 @@ footer {
   a {
     width: max-content;
     color: vars.$beige;
+
+    &:hover {
+      color: #FFD89E;
+    }
   }
 
   .logo {

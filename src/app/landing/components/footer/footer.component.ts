@@ -20,7 +20,7 @@ export class FooterComponent {
     },
     {
       name: 'Товары',
-      link: '#goods',
+      link: '#products',
     },
     {
       name: 'Наши работы',

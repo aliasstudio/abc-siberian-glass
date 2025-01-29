@@ -30,10 +30,18 @@ header {
 
   &.dark-text a {
     color: vars.$text-color;
+
+    &:hover {
+      color: #258034;
+    }
   }
 
   a {
     color: vars.$beige;
     transition: color .2s ease-in-out;
+
+    &:hover {
+      color: #FFD89E;
+    }
   }
 }

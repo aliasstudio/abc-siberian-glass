@@ -1,0 +1,40 @@
+@use "src/styles/_variables.scss" as vars;
+
+:host {
+  display: block;
+  height: 100%;
+}
+
+.product-card {
+  .thumbnail {
+    position: relative;
+    padding-top: 100%;
+    border-radius: calc(#{vars.$default-radius} * 2);
+    overflow: hidden;
+  }
+
+  .title {
+    flex: 1 1 auto;
+    font-size: 1.5rem;
+  }
+
+  .price {
+    font-size: 2rem;
+    color: vars.$green;
+  }
+
+  a {
+    display: inline-flex;
+    width: max-content;
+    font-size: 1.5rem;
+    line-height: 1.1;
+    color: vars.$text-color;
+    transition: all .3s ease-in-out;
+    border-bottom: 1px solid currentColor;
+
+    &:hover {
+      color: vars.$green;
+      border-color: vars.$green;
+    }
+  }
+}

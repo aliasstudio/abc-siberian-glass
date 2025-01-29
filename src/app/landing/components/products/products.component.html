@@ -2,15 +2,13 @@
   <h1>Товары</h1>
   <div class="swiper__wrapper">
     <swiper-container #swiperContainer init="false">
-      @for (slide of goods; track slide.title) {
-        <swiper-slide lazy="true">
-          <div class="d-flex align-items-center justify-content-center slide">
-            <img loading="lazy" src="{{ slide.link }}" alt="{{ slide.title }}" />
-          </div>
+      @for (product of products; track product.id) {
+        <swiper-slide class="h-100">
+          <app-product-block [product]="product" />
         </swiper-slide>
       }
     </swiper-container>
-    <div class="slider-navigation goods_slider">
+    <div class="slider-navigation products_slider">
       <div class="slider-navigation__prev">
         <svg width="81" height="16" viewBox="0 0 81 16" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path
