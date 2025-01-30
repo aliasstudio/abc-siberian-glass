@@ -4,5 +4,5 @@
   </div>
   <span class="title">{{ product().title }}</span>
   <span class="price">{{ product().price }} ₽</span>
-  <a [routerLink]="'products/' + product().id">Подробнее</a>
+  <a [routerLink]="['product', product().id]">Подробнее</a>
 </div>

@@ -5,9 +5,7 @@
       @for (slide of slides; track slide.title) {
         <swiper-slide lazy="true">
           <div class="d-flex align-items-center justify-content-center slide">
-            <div class="d-flex align-items-center justify-content-center image-wrapper">
-              <img loading="lazy" src="{{ slide.link }}" alt="{{ slide.title }}" />
-            </div>
+            <img fill ngSrc="{{ slide.link }}" alt="{{ slide.title }}" />
           </div>
         </swiper-slide>
       }

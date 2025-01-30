@@ -1,20 +1,22 @@
-import { ChangeDetectionStrategy, Component, HostListener } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, DestroyRef, HostListener, inject } from '@angular/core';
 import { PHONE, PHONE_DIGITS } from '@app/shared/utils/constants';
+import { LocationStrategy, PathLocationStrategy } from '@angular/common';
+import { NavigationEnd, Router } from '@angular/router';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [Location, { provide: LocationStrategy, useClass: PathLocationStrategy }],
 })
 export class HeaderComponent {
-  readonly phone = PHONE;
-  readonly digits = PHONE_DIGITS;
+  protected readonly phone = PHONE;
+  protected readonly digits = PHONE_DIGITS;
 
-  hasBlur = false;
-  skipFirst = false;
-
-  menu = [
+  protected readonly menu = [
     {
       name: 'О нас',
       link: '#about',
@@ -37,8 +39,28 @@ export class HeaderComponent {
     },
   ];
 
+  protected get isProductPage(): boolean {
+    return location.pathname.includes('product');
+  }
+
+  protected hasBlur = false;
+  protected skipFirst = false;
+
+  constructor() {
+    const router = inject(Router);
+    const destroy = inject(DestroyRef);
+    const changeDetector = inject(ChangeDetectorRef);
+
+    router.events
+      .pipe(
+        filter(event => event instanceof NavigationEnd),
+        takeUntilDestroyed(destroy),
+      )
+      .subscribe(() => changeDetector.markForCheck());
+  }
+
   @HostListener('window:scroll', ['$event'])
-  onScroll(): void {
+  protected onScroll(): void {
     this.hasBlur = window.scrollY >= 150;
     this.skipFirst = window.scrollY >= window.innerHeight - 100;
   }

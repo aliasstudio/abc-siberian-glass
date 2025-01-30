@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, HostBinding, HostListener } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostListener, signal } from '@angular/core';
 import { NgOptimizedImage } from '@angular/common';
 
 @Component({
@@ -7,13 +7,11 @@ import { NgOptimizedImage } from '@angular/common';
   styleUrl: './main.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [NgOptimizedImage],
+  host: { '[style.height]': 'windowHeight() + "px"' },
 })
 export class MainComponent {
-  @HostBinding('style.height')
-  height = `${window.innerHeight}px`;
-
   @HostListener('window:resize', ['$event'])
-  onResize(): void {
-    this.height = `${window.innerHeight}px`;
-  }
+  onResize = (): void => this.windowHeight.set(window.innerHeight);
+
+  readonly windowHeight = signal<number>(window.innerHeight);
 }

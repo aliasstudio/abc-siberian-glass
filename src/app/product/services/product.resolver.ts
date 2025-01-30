@@ -1,5 +1,7 @@
-import type { ResolveFn } from '@angular/router';
+import type { ResolveFn, UrlTree } from '@angular/router';
+import { RedirectCommand, Router } from '@angular/router';
 import type { Product } from '@app/product/models/product';
+import { inject } from '@angular/core';
 
 export const PRODUCTS: Product[] = [
   {
@@ -28,5 +30,15 @@ export const PRODUCTS: Product[] = [
   },
 ];
 
-export const productResolver: ResolveFn<Product> = ({ params }) =>
-  PRODUCTS.find(product => product.id === params.productId);
+export const productResolver: ResolveFn<Product> = ({ params }) => {
+  const product = PRODUCTS.find(product => product.id === +params.productId);
+
+  if (!product) {
+    const router: Router = inject(Router);
+    const urlTree: UrlTree = router.parseUrl('/not-found');
+
+    return new RedirectCommand(urlTree);
+  }
+
+  return product;
+};

@@ -5,13 +5,14 @@ import type { SwiperContainer } from 'swiper/element';
 // @ts-ignore type
 import type { SwiperOptions } from 'swiper';
 import { scrollToElementById } from '@app/shared/utils/functions';
+import { NgOptimizedImage } from '@angular/common';
 
 @Component({
   selector: 'app-works',
   templateUrl: './works.component.html',
   styleUrl: './works.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [MainButtonDirective],
+  imports: [MainButtonDirective, NgOptimizedImage],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class WorksComponent implements AfterViewInit {
@@ -24,7 +25,7 @@ export class WorksComponent implements AfterViewInit {
     { title: 'shower_1.jpg', link: 'assets/images/works/shower/shower_1.jpg' },
     { title: 'shower_2.jpg', link: 'assets/images/works/shower/shower_2.jpg' },
     { title: 'shower_3.jpg', link: 'assets/images/works/shower/shower_3.jpg' },
-    { title: 'shower_4.jpg', link: 'assets/images/works/shower/shower_4.jpg' },
+    // { title: 'shower_4.jpg', link: 'assets/images/works/shower/shower_4.jpg' }, // Неудачный размер
     { title: 'shower_5.jpg', link: 'assets/images/works/shower/shower_5.jpg' },
     { title: 'shower_6.jpg', link: 'assets/images/works/shower/shower_6.jpg' },
     { title: 'shower_7.jpg', link: 'assets/images/works/shower/shower_7.jpg' },
