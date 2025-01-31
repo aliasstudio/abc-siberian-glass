@@ -1,8 +1,10 @@
 import { inject, InjectionToken } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 
-export const PHONE = '+7 (993) 935-24-67';
-export const PHONE_DIGITS = PHONE.replace(/[^+\d]/g, '');
+export interface NamedLink {
+  name: string;
+  link: string;
+}
 
 export const APP_NAME = new InjectionToken<string>('APP_NAME', {
   providedIn: 'root',

@@ -1,20 +1,22 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { NgOptimizedImage } from '@angular/common';
-import { PHONE, PHONE_DIGITS } from '@app/shared/utils/constants';
+import type { NamedLink } from '@app/shared/utils/constants';
+import { PHONE, PHONE_DIGITS } from '@app/app.config';
 import { RouterLink } from '@angular/router';
+import { SocialButtonsComponent } from '@app/shared/components/social-buttons/social-buttons.component';
 
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [NgOptimizedImage, RouterLink],
+  imports: [NgOptimizedImage, RouterLink, SocialButtonsComponent],
 })
 export class FooterComponent {
   readonly phone = PHONE;
   readonly digits = PHONE_DIGITS;
 
-  menu = [
+  readonly menu: Array<NamedLink> = [
     {
       name: 'О нас',
       link: '#about',
@@ -26,21 +28,6 @@ export class FooterComponent {
     {
       name: 'Наши работы',
       link: '#works',
-    },
-  ];
-
-  social = [
-    {
-      icon: 'tg.svg',
-      link: 'tg.com',
-    },
-    {
-      icon: 'vk.svg',
-      link: 'vk.com',
-    },
-    {
-      icon: 'whatsapp.svg',
-      link: 'whatsapp.com',
     },
   ];
 }

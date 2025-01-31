@@ -1,0 +1,62 @@
+@use "src/styles/_variables.scss" as vars;
+
+.product {
+  padding-block: 3rem;
+  gap: 4rem;
+
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  &__card {
+    gap: inherit;
+    padding-bottom: 4rem;
+    border-bottom: 2px solid vars.$green;
+
+    .image-container {
+      border-radius: vars.$default-radius * 2;
+      overflow: hidden;
+      padding-bottom: 100%;
+    }
+
+    &__description {
+      &_social {
+        button {
+          padding: 0.5rem 1rem;
+
+          img {
+            height: 20px;
+          }
+        }
+      }
+
+      &_characteristics {
+        grid-template-columns: repeat(2, 1fr);
+
+        ul {
+          list-style: none;
+          font-size: 1.2rem;
+
+          li:before {
+            content: "—";
+            position: relative;
+            left: -0.5rem;
+          }
+        }
+      }
+    }
+  }
+
+  &__cross {
+    gap: 2rem;
+    max-height: 610px;
+
+    app-product-block {
+      height: auto;
+    }
+  }
+}

@@ -3,13 +3,14 @@
 :host {
   display: block;
   height: 100%;
+  width: 100%;
 }
 
 .product-card {
   .thumbnail {
     position: relative;
     padding-top: 100%;
-    border-radius: calc(#{vars.$default-radius} * 2);
+    border-radius: vars.$default-radius * 2;
     overflow: hidden;
   }
 

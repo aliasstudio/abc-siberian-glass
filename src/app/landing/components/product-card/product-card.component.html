@@ -1,1 +1,43 @@
-<p>product-card works!</p>
+<div class="d-flex flex-column product">
+  <div class="d-flex product__card">
+    <div class="w-50">
+      <div class="image-container position-relative">
+        <img fill [ngSrc]="product().imageSrc" [alt]="product().title" />
+      </div>
+    </div>
+    <div class="d-flex flex-column product__card__description">
+      <h1 class="fw-medium">{{ product().title }}</h1>
+      <h2 class="text-primary mb-4 fw-medium">{{ getPrice(product().price) }}</h2>
+      <div class="d-flex mb-4 product__card__description_social">
+        <a href="tel:{{ digits }}">
+          <button appMainButton>
+            <span class="d-inline-flex align-items-center gap-2">
+              <img src="assets/icons/phone.svg" />
+              {{ phone }}
+            </span>
+          </button>
+        </a>
+        <app-social-buttons class="ms-3" [effect]="true" />
+      </div>
+      <h2 class="fw-medium mb-3">Описание</h2>
+      <h4 class="mb-3">{{ product().description }}</h4>
+      <div class="d-grid product__card__description_characteristics">
+        @for (char of product().characteristics; track char.title) {
+          <div>
+            <h4 class="fw-semibold">{{ char.title }}:</h4>
+            <ul>
+              @for (option of char.options; track option) {
+                <li>{{ option }}</li>
+              }
+            </ul>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+  <div class="d-flex product__cross">
+    @for (product of crossProducts(); track product.id) {
+      <app-product-block [product]="product" />
+    }
+  </div>
+</div>

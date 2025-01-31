@@ -14,6 +14,7 @@ footer {
   a {
     width: max-content;
     color: vars.$beige;
+    transition: color .3s ease-in-out;
 
     &:hover {
       color: #FFD89E;
@@ -23,21 +24,5 @@ footer {
   .logo {
     position: relative;
     width: 140px;
-  }
-
-  .social {
-    a {
-      display: inline-flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    img {
-      max-height: 38px;
-
-      &.vk {
-        max-height: 48px;
-      }
-    }
   }
 }

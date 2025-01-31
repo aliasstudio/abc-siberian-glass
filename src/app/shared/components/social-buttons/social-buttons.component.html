@@ -1,0 +1,14 @@
+<div class="d-flex gap-3 align-items-center social">
+  @for (icon of social; track icon.link) {
+    <a
+      role="button"
+      class="btn rounded-circle"
+      target="_blank"
+      [href]="icon.link"
+      [style.height.px]="size()"
+      [style.width.px]="size()"
+    >
+      <img src="assets/icons/{{ icon.name }}" [class.vk]="icon.name === 'vk.svg'" />
+    </a>
+  }
+</div>

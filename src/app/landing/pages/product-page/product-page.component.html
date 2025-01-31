@@ -1,4 +1,7 @@
 <section class="container">
   <h1>Товары</h1>
-  <app-product-card />
+  <app-product-card [product]="product()" />
+  <div class="d-flex align-items-center justify-content-center mb-4">
+    <button appMainButton>Скачать весь каталог</button>
+  </div>
 </section>

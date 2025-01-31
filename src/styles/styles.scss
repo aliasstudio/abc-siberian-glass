@@ -62,7 +62,7 @@ body {
 }
 
 .container {
-  max-width: calc(#{vars.$container-width} + #{vars.$default-padding}  * 2);
+  max-width: vars.$container-width + vars.$default-padding * 2;
   padding-right: vars.$default-padding;
   padding-left: vars.$default-padding;
   margin: 0 auto;

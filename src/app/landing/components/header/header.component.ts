@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, DestroyRef, HostListener, inject } from '@angular/core';
-import { PHONE, PHONE_DIGITS } from '@app/shared/utils/constants';
+import { PHONE, PHONE_DIGITS } from '@app/app.config';
 import { LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { NavigationEnd, Router } from '@angular/router';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
@@ -16,7 +16,7 @@ export class HeaderComponent {
   protected readonly phone = PHONE;
   protected readonly digits = PHONE_DIGITS;
 
-  protected readonly menu = [
+  readonly menu = [
     {
       name: 'О нас',
       link: '#about',
@@ -56,7 +56,21 @@ export class HeaderComponent {
         filter(event => event instanceof NavigationEnd),
         takeUntilDestroyed(destroy),
       )
-      .subscribe(() => changeDetector.markForCheck());
+      .subscribe(event => {
+        const menu = this.menu;
+
+        changeDetector.markForCheck();
+        menu[0].name === 'Главная' && menu.shift();
+
+        /** Если попадаем на страницу товара скролим всегда вверх, чтобы отобразить карточку */
+        if (event.url.includes('/product/')) {
+          window.scrollTo(0, 0);
+          menu.unshift({
+            name: 'Главная',
+            link: '/',
+          });
+        }
+      });
   }
 
   @HostListener('window:scroll', ['$event'])

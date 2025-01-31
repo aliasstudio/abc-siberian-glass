@@ -1,15 +1,46 @@
 import type { ApplicationConfig } from '@angular/core';
 import { provideExperimentalZonelessChangeDetection } from '@angular/core';
 import { routes } from '@app/app.routes';
-import { PreloadAllModules, provideRouter, withPreloading, withRouterConfig } from '@angular/router';
+import {
+  PreloadAllModules,
+  provideRouter,
+  withComponentInputBinding,
+  withPreloading,
+  withRouterConfig,
+} from '@angular/router';
 import { provideHttpClient } from '@angular/common/http';
 import { provideTitle } from '@app/shared/services/title.service';
+import type { NamedLink } from '@app/shared/utils/constants';
+
+const APP_TITLE = 'ABC Siberian Glass';
+
+export const PHONE = '+7 (993) 935-24-67';
+export const PHONE_DIGITS = PHONE.replace(/[^+\d]/g, '');
+export const SOCIAL: Array<NamedLink> = [
+  {
+    name: 'tg.svg',
+    link: 'https://t.me/abcsibglass',
+  },
+  {
+    name: 'vk.svg',
+    link: 'https://vk.com/abcsibglass',
+  },
+  {
+    name: 'whatsapp.svg',
+    link: 'https://api.whatsapp.com/send/?phone=79612083998&text&type=phone_number&app_absent=0',
+  },
+];
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideExperimentalZonelessChangeDetection(),
     provideHttpClient(),
-    provideRouter(routes, withRouterConfig({ paramsInheritanceStrategy: 'always' }), withPreloading(PreloadAllModules)),
-    provideTitle('ABC Siberian Glass'),
+    provideRouter(
+      routes,
+      withRouterConfig({ paramsInheritanceStrategy: 'always' }),
+      withComponentInputBinding(),
+      withPreloading(PreloadAllModules),
+    ),
+    provideTitle(APP_TITLE),
   ],
 };
