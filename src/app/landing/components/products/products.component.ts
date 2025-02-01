@@ -36,6 +36,29 @@ export class ProductsComponent implements AfterViewInit {
         prevEl: '.products_slider .slider-navigation__prev',
         nextEl: '.products_slider .slider-navigation__next',
       },
+      injectStyles: [
+        `
+            :host .swiper-horizontal {
+              @media (max-width: 1240px) {
+                overflow: visible;
+              }
+            }
+          `,
+      ],
+      breakpoints: {
+        1024: {
+          slidesPerView: 4,
+        },
+        820: {
+          slidesPerView: 3.2,
+        },
+        600: {
+          slidesPerView: 2.2,
+        },
+        280: {
+          slidesPerView: 1.2,
+        },
+      },
     };
     const swiper = this.swiper().nativeElement;
 

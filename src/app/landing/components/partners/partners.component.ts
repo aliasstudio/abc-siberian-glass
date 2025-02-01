@@ -62,6 +62,29 @@ export class PartnersComponent implements AfterViewInit {
         nextEl: '.partners_slider .slider-navigation__next',
       },
       lazyPreloadPrevNext: 2,
+      injectStyles: [
+        `
+            :host .swiper-horizontal {
+              @media (max-width: 1240px) {
+                overflow: visible;
+              }
+            }
+          `,
+      ],
+      breakpoints: {
+        960: {
+          slidesPerView: 3,
+        },
+        800: {
+          slidesPerView: 2,
+        },
+        520: {
+          slidesPerView: 1.5,
+        },
+        280: {
+          slidesPerView: 1,
+        },
+      },
     };
     const swiper = this.swiper().nativeElement;
 
