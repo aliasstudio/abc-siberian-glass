@@ -1,9 +1,10 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, DestroyRef, HostListener, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, DestroyRef, HostListener, inject, signal } from '@angular/core';
 import { PHONE, PHONE_DIGITS } from '@app/app.config';
 import { LocationStrategy, PathLocationStrategy } from '@angular/common';
-import { NavigationEnd, Router } from '@angular/router';
+import { NavigationEnd, Router, RouterLink } from '@angular/router';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { filter } from 'rxjs';
+import { MenuBtnComponent } from '@app/shared/components/menu-btn/menu-btn.component';
 
 @Component({
   selector: 'app-header',
@@ -11,10 +12,17 @@ import { filter } from 'rxjs';
   styleUrl: './header.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [Location, { provide: LocationStrategy, useClass: PathLocationStrategy }],
+  imports: [MenuBtnComponent, RouterLink],
 })
 export class HeaderComponent {
   protected readonly phone = PHONE;
   protected readonly digits = PHONE_DIGITS;
+
+  readonly hasBlur = signal(false);
+  readonly skipFirst = signal(false);
+  readonly isNarrow = signal(window.innerWidth <= 1024);
+  readonly isProductPage = signal(location.pathname.includes('product'));
+  readonly isDropdownActive = signal(false);
 
   readonly menu = [
     {
@@ -39,17 +47,9 @@ export class HeaderComponent {
     },
   ];
 
-  protected get isProductPage(): boolean {
-    return location.pathname.includes('product');
-  }
-
-  protected hasBlur = false;
-  protected skipFirst = false;
-
   constructor() {
     const router = inject(Router);
     const destroy = inject(DestroyRef);
-    const changeDetector = inject(ChangeDetectorRef);
 
     router.events
       .pipe(
@@ -59,7 +59,7 @@ export class HeaderComponent {
       .subscribe(event => {
         const menu = this.menu;
 
-        changeDetector.markForCheck();
+        this.isProductPage.set(location.pathname.includes('product'));
         menu[0].name === 'Главная' && menu.shift();
 
         /** Если попадаем на страницу товара скролим всегда вверх, чтобы отобразить карточку */
@@ -75,7 +75,18 @@ export class HeaderComponent {
 
   @HostListener('window:scroll', ['$event'])
   protected onScroll(): void {
-    this.hasBlur = window.scrollY >= 150;
-    this.skipFirst = window.scrollY >= window.innerHeight - 100;
+    this.hasBlur.set(window.scrollY >= 150);
+    this.skipFirst.set(window.scrollY >= window.innerHeight - 100);
+  }
+
+  @HostListener('window:resize', ['$event'])
+  protected onResize(): void {
+    this.isNarrow.set(window.innerWidth <= 1024);
+    this.isDropdownActive.set(false);
+  }
+
+  protected onMenuClick(): void {
+    document.querySelector('body').classList.toggle('lock');
+    this.isDropdownActive.set(!this.isDropdownActive());
   }
 }

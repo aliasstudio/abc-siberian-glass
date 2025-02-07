@@ -1,15 +1,21 @@
 @use "src/styles/_variables.scss" as vars;
 
 header {
+  display: flex;
+  justify-content: space-between;
   position: fixed;
   top: 0;
   left: 50%;
-  z-index: 1000;
+  z-index: 500;
   transform: translateX(-50%);
   padding-block: 16px;
   margin: 16px 0;
   font-size: 24px;
   font-weight: 600;
+  color: vars.$beige;
+  overflow: hidden;
+  transition: height .3s ease-in-out;
+  height: 68px;
 
   &:before {
     content: '';
@@ -24,24 +30,62 @@ header {
     transition: background-color .3s ease-in-out, box-shadow .3s ease-in-out;
   }
 
-  &.glass:before {
-    @include vars.glass();
+  &.glass{
+    &:before {
+      @include vars.glass();
+      box-shadow: none;
+    }
   }
 
-  &.dark-text a {
+  &.dark-text {
     color: vars.$text-color;
 
-    &:hover {
+    a:hover {
       color: #258034;
     }
   }
 
   a {
-    color: vars.$beige;
+    color: currentColor;
     transition: color .2s ease-in-out;
+    height: max-content;
+    width: max-content;
 
     &:hover {
       color: #FFD89E;
     }
   }
+
+  .app-menu {
+    display: flex;
+    gap: 1rem;
+    transition: transform .3s ease-in-out;
+
+    &.mobile {
+      opacity: 0;
+      transform: translateY(calc(-100% - 5em));
+      position: absolute;
+      top: 2em;
+      left: 1em;
+      flex-flow: column;
+      overflow-y: auto;
+      font-size: 2rem;
+      font-weight: 600;
+    }
+  }
+
+  &.menu-active {
+    height: calc(100% - 16px * 2);
+
+    &:before {
+      @include vars.glass();
+    }
+
+    .app-menu {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 }
+
+

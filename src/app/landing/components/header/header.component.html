@@ -1,11 +1,19 @@
 <header
-  class="container d-flex justify-content-between align-items-center"
-  [class.glass]="hasBlur || isProductPage"
-  [class.dark-text]="skipFirst || isProductPage"
+  class="container"
+  [class.glass]="hasBlur() || isProductPage()"
+  [class.dark-text]="skipFirst() || isProductPage()"
+  [class.menu-active]="isDropdownActive()"
 >
-  <div class="d-flex gap-4">
+  @if (isNarrow()) {
+    <app-menu-btn (click)="onMenuClick()" />
+  }
+  <div class="app-menu" [class.mobile]="isNarrow()">
     @for (item of menu; track item.link) {
-      <a href="{{ item.link }}">{{ item.name }}</a>
+      @if (item.link === '/') {
+        <a [routerLink]="item.link" (click)="isDropdownActive.set(false)">{{ item.name }}</a>
+      } @else {
+        <a [href]="item.link" (click)="isDropdownActive.set(false)">{{ item.name }}</a>
+      }
     }
   </div>
   <a href="tel:{{ digits }}">{{ phone }}</a>

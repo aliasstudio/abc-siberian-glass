@@ -1,0 +1,57 @@
+@use "src/styles/_variables.scss" as vars;
+
+:host {
+  position: relative;
+  height: 20px;
+  width: 24px;
+  cursor: pointer;
+  margin-block: 8px;
+
+  span {
+    position: absolute;
+    left: 0;
+    display: block;
+    height: 2px;
+    width: 100%;
+    background-color: currentColor;
+    transition: all .3s ease-in-out;
+
+    @for $i from 1 through 3 {
+      &:nth-child(#{$i}) {
+        top: calc(#{$i - 1} * 8px);
+      }
+    }
+  }
+
+  &:hover {
+    span {
+      &:nth-child(n + 1) {
+        transform: scaleX(0.9);
+      }
+
+      &:nth-child(2) {
+        transform: scaleX(0.8);
+      }
+    }
+  }
+
+  &.active {
+    span {
+      &:first-child {
+        transform: rotate(45deg);
+        top: 50%;
+        transform-origin: center;
+      }
+
+      &:nth-child(2) {
+        transform: scaleX(0);
+      }
+
+      &:last-child {
+        transform: rotate(-45deg);
+        top: 50%;
+        transform-origin: center;
+      }
+    }
+  }
+}
