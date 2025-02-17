@@ -112,7 +112,12 @@ section {
   font-size: 1.5rem;
   line-height: 1;
   border-radius: vars.$default-radius * 1.5;
-  transition: all .3s cubic-bezier(0.4, 0, 0.2, 1);;
+  transition: all .3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  @media (max-width: 520px) {
+    padding: 0.85rem 2rem;
+    width: 100%;
+  }
 
   &:hover {
     background-color: #266c29;
@@ -143,7 +148,6 @@ section {
 .swiper__wrapper {
   position: relative;
   margin-bottom: 32px;
-  margin-left: 4px;
 
   swiper-container {
     margin-top: 2.5rem;
@@ -152,6 +156,7 @@ section {
     .slide {
       height: 148px;
       margin-bottom: 1px;
+      margin-left: 1px;
 
       img {
         width: calc(100% - #{vars.$default-padding} * 2);

@@ -2,9 +2,10 @@
 
 .swiper__wrapper {
   .slide {
-    padding-bottom: 135%;
+    padding-bottom: 100%;
     position: relative;
     overflow: hidden;
+    border-radius: vars.$default-radius;
 
     img {
       max-width: 100%;
