@@ -11,6 +11,8 @@ import {
 import { provideHttpClient } from '@angular/common/http';
 import { provideTitle } from '@app/shared/services/title.service';
 import type { NamedLink } from '@app/shared/utils/constants';
+import { provideAnimations } from '@angular/platform-browser/animations';
+import { provideLightbox } from '@app/shared/utils/functions';
 
 const APP_TITLE = 'ABC Siberian Glass';
 
@@ -35,6 +37,7 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideExperimentalZonelessChangeDetection(),
     provideHttpClient(),
+    provideAnimations(),
     provideRouter(
       routes,
       withRouterConfig({ paramsInheritanceStrategy: 'always' }),
@@ -42,5 +45,9 @@ export const appConfig: ApplicationConfig = {
       withPreloading(PreloadAllModules),
     ),
     provideTitle(APP_TITLE),
+    provideLightbox({
+      panelClass: 'app-lightbox-panel',
+      backdropClass: 'app-lightbox-backdrop',
+    }),
   ],
 };

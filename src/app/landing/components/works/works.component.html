@@ -1,7 +1,7 @@
 <section class="container">
   <h1>Наши работы</h1>
   <div class="swiper__wrapper">
-    <swiper-container #swiperContainer init="false">
+    <swiper-container #swiperContainer init="false" gallerize>
       @for (slide of slides; track slide.title) {
         <swiper-slide lazy="true">
           <div class="d-flex align-items-center justify-content-center slide">

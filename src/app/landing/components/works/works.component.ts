@@ -6,13 +6,14 @@ import type { SwiperContainer } from 'swiper/element';
 import type { SwiperOptions } from 'swiper';
 import { scrollToElementById } from '@app/shared/utils/functions';
 import { NgOptimizedImage } from '@angular/common';
+import { GallerizeDirective } from 'ng-gallery/lightbox';
 
 @Component({
   selector: 'app-works',
   templateUrl: './works.component.html',
   styleUrl: './works.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [MainButtonDirective, NgOptimizedImage],
+  imports: [MainButtonDirective, NgOptimizedImage, GallerizeDirective],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class WorksComponent implements AfterViewInit {

@@ -183,3 +183,29 @@ section {
     }
   }
 }
+
+.app-lightbox {
+  &-backdrop {
+    background-color: rgb(0 0 0 / 50%);
+  }
+
+  &-panel {
+    @include vars.glass();
+    border-radius: vars.$default-radius;
+
+    lightbox {
+      padding-block: 3em;
+      width: calc(800px + 3em * 2);
+      box-shadow: none;
+
+      .g-btn-close {
+        right: 20px;
+        top: 16px;
+      }
+
+      gallery {
+        background-color: unset;
+      }
+    }
+  }
+}
