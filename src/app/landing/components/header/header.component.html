@@ -8,7 +8,7 @@
     <app-menu-btn (click)="onMenuClick()" />
   }
   <div class="app-menu" [class.mobile]="isNarrow()">
-    @for (item of menu; track item.link) {
+    @for (item of menu(); track item.link) {
       @if (item.link === '/') {
         <a [routerLink]="item.link" (click)="isDropdownActive.set(false)">{{ item.name }}</a>
       } @else {

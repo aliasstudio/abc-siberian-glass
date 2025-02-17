@@ -1,4 +1,12 @@
-import { ChangeDetectionStrategy, Component, DestroyRef, HostListener, inject, signal } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  DestroyRef,
+  HostListener,
+  inject,
+  linkedSignal,
+  signal,
+} from '@angular/core';
 import { PHONE, PHONE_DIGITS } from '@app/app.config';
 import { LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { NavigationEnd, Router, RouterLink } from '@angular/router';
@@ -24,28 +32,40 @@ export class HeaderComponent {
   readonly isProductPage = signal(location.pathname.includes('product'));
   readonly isDropdownActive = signal(false);
 
-  readonly menu = [
-    {
-      name: 'О нас',
-      link: '#about',
-    },
-    {
-      name: 'Товары',
-      link: '#products',
-    },
-    {
-      name: 'Этапы работы',
-      link: '#steps',
-    },
-    {
-      name: 'Наши работы',
-      link: '#works',
-    },
-    {
-      name: 'Партнеры',
-      link: '#partners',
-    },
-  ];
+  readonly menu = linkedSignal(() => {
+    const menu = [
+      {
+        name: 'О нас',
+        link: '#about',
+      },
+      {
+        name: 'Товары',
+        link: '#products',
+      },
+      {
+        name: 'Этапы работы',
+        link: '#steps',
+      },
+      {
+        name: 'Наши работы',
+        link: '#works',
+      },
+      {
+        name: 'Партнеры',
+        link: '#partners',
+      },
+    ];
+
+    return this.isProductPage()
+      ? [
+          {
+            name: 'Главная',
+            link: '/',
+          },
+          ...menu,
+        ]
+      : menu;
+  });
 
   constructor() {
     const router = inject(Router);
@@ -56,20 +76,10 @@ export class HeaderComponent {
         filter(event => event instanceof NavigationEnd),
         takeUntilDestroyed(destroy),
       )
-      .subscribe(event => {
-        const menu = this.menu;
-
+      .subscribe(() => {
         this.isProductPage.set(location.pathname.includes('product'));
-        menu[0].name === 'Главная' && menu.shift();
-
         /** Если попадаем на страницу товара скролим всегда вверх, чтобы отобразить карточку */
-        if (event.url.includes('/product/')) {
-          window.scrollTo(0, 0);
-          menu.unshift({
-            name: 'Главная',
-            link: '/',
-          });
-        }
+        this.isProductPage() && window.scrollTo(0, 0);
       });
   }
 
