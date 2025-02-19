@@ -13,6 +13,7 @@ import { provideTitle } from '@app/shared/services/title.service';
 import type { NamedLink } from '@app/shared/utils/constants';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideLightbox } from '@app/shared/utils/functions';
+import { provideEnvironmentNgxMask } from 'ngx-mask';
 
 const APP_TITLE = 'ABC Siberian Glass';
 
@@ -32,6 +33,7 @@ export const SOCIAL: Array<NamedLink> = [
     link: 'https://api.whatsapp.com/send/?phone=79612083998&text&type=phone_number&app_absent=0',
   },
 ];
+export const BACKEND_ROOT = 'http://localhost:3000/api';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -45,6 +47,7 @@ export const appConfig: ApplicationConfig = {
       withPreloading(PreloadAllModules),
     ),
     provideTitle(APP_TITLE),
+    provideEnvironmentNgxMask(),
     provideLightbox({
       panelClass: 'app-lightbox-panel',
       backdropClass: 'app-lightbox-backdrop',

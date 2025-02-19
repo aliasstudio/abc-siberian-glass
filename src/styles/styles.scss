@@ -1,4 +1,5 @@
 @use "variables" as vars;
+@use "sass:color" as color;
 @forward "fonts";
 
 *, *:before, *:after {
@@ -119,19 +120,23 @@ section {
     width: 100%;
   }
 
-  &:hover {
-    background-color: #266c29;
+  &:not([disabled]):hover {
+    background-color: vars.$lightGreen;
     transform: translateY(-1px);
     box-shadow:
       0 1px 12px rgba(26, 86, 35, 0.25),
       inset 0 -1px 0 rgba(0, 0, 0, 0.1);
   }
 
+  &[disabled] {
+    cursor: not-allowed;
+  }
+
   &__alt {
     background-color: vars.$beige;
     color: vars.$green;
 
-    &:hover {
+    &:not([disabled]):hover {
       background-color: #FFE6A4;
       transform: translateY(-1px);
       box-shadow:

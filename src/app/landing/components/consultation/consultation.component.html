@@ -1,22 +1,45 @@
 <section class="container">
   <div class="d-flex flex-column align-items-center consultation">
-    <div class="consultation__controls d-flex flex-column align-items-end">
+    <form class="consultation__controls d-flex flex-column align-items-end" [formGroup]="form">
       <h2 class="fw-normal text-center mb-4 text-secondary">
         Получите бесплатную консультацию администратора и задайте уточняющие вопросы
       </h2>
       <div class="input-group input-group-lg mb-4">
-        <input type="text" class="form-control" placeholder="Ваше имя" aria-label="name" />
+        <input type="text" class="form-control" placeholder="Ваше имя" aria-label="name" formControlName="nameFF" />
       </div>
       <div class="input-group input-group-lg mb-4">
-        <input type="text" class="form-control" placeholder="Ваш проект" aria-label="project" />
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Ваш проект"
+          aria-label="project"
+          formControlName="projectFF"
+        />
       </div>
       <div class="input-group input-group-lg mb-4">
-        <input type="text" class="form-control" placeholder="Ваш номер телефона" aria-label="phone" />
+        <input
+          type="text"
+          class="form-control"
+          prefix="+7 "
+          mask="(000) 000 00 00"
+          placeholder="Ваш номер телефона"
+          aria-label="phone"
+          formControlName="telFF"
+          [instantPrefix]="false"
+        />
       </div>
       <div class="input-group input-group-lg mb-4">
-        <input type="text" class="form-control" placeholder="Другой контакт" aria-label="contact" />
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Другой контакт"
+          aria-label="contact"
+          formControlName="contactFF"
+        />
       </div>
-      <button appMainButton themeColor="alternative">Получить консультацию</button>
-    </div>
+      <button appMainButton themeColor="alternative" [disabled]="form.invalid" (click)="submitClick.next()">
+        Получить консультацию
+      </button>
+    </form>
   </div>
 </section>

@@ -13,8 +13,10 @@ $section-padding: 16px;
 $bg-color: #E0D8CF; //#fffbec
 $text-color: #19291F;
 $green: #1A5623;
+$lightGreen: #266c29;
 $beige: #FFF1BE;
 $white: #E0D8CF;
+$invalid: #E25A5A;
 
 @mixin glass() {
   background-color: rgba(255, 255, 255, 0.14);

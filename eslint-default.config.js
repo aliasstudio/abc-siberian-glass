@@ -167,6 +167,14 @@ const tsConfig = [
           trailingUnderscore: 'allowSingleOrDouble',
           modifiers: ['const'],
         },
+        {
+          selector: ['objectLiteralProperty', 'variable', 'method', 'function'],
+          format: null,
+          filter: {
+            regex: `.*(FF).*`,
+            match: true,
+          },
+        },
       ],
       '@typescript-eslint/no-unnecessary-boolean-literal-compare': 'off',
       '@typescript-eslint/no-unnecessary-condition': 'off',
