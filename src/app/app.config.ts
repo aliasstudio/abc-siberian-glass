@@ -17,7 +17,7 @@ import { provideEnvironmentNgxMask } from 'ngx-mask';
 
 const APP_TITLE = 'ABC Siberian Glass';
 
-export const PHONE = '+7 (993) 935-24-67';
+export const PHONE = '+7 (961) 208-39-98';
 export const PHONE_DIGITS = PHONE.replace(/[^+\d]/g, '');
 export const SOCIAL: Array<NamedLink> = [
   {
@@ -30,10 +30,10 @@ export const SOCIAL: Array<NamedLink> = [
   },
   {
     name: 'whatsapp.svg',
-    link: 'https://api.whatsapp.com/send/?phone=79612083998&text&type=phone_number&app_absent=0',
+    link: `https://api.whatsapp.com/send/?phone=${PHONE_DIGITS.substring(1)}&text&type=phone_number&app_absent=0`,
   },
 ];
-export const BACKEND_ROOT = 'http://localhost:3000/api';
+export const BACKEND_ROOT = 'https://abcsibglass.ru/api';
 
 export const appConfig: ApplicationConfig = {
   providers: [

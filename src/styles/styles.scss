@@ -164,7 +164,8 @@ section {
       margin-left: 1px;
 
       img {
-        width: calc(100% - #{vars.$default-padding} * 2);
+        width: auto;
+        max-width: 80%;
         max-height: 100%;
       }
     }

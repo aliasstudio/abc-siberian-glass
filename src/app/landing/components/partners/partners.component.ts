@@ -17,31 +17,31 @@ export class PartnersComponent implements AfterViewInit {
   slides = [
     {
       title: 'РЖД',
-      link: 'assets/images/partners/rzd.svg',
+      link: 'assets/images/partners/rzd.webp',
     },
     {
       title: 'СИБУР',
-      link: 'assets/images/partners/sibur.png',
+      link: 'assets/images/partners/sibur.webp',
     },
     {
       title: 'World Class',
-      link: 'assets/images/partners/world.svg',
+      link: 'assets/images/partners/world.webp',
     },
     {
       title: 'Брусника',
-      link: 'assets/images/partners/brusnika.png',
+      link: 'assets/images/partners/brusnika.webp',
     },
     {
       title: 'АРМАДА',
-      link: 'assets/images/partners/armada.svg',
+      link: 'assets/images/partners/armada.webp',
     },
     {
-      title: 'Мострострой 11',
-      link: 'assets/images/partners/most.png',
+      title: 'Мостострой 11',
+      link: 'assets/images/partners/most.webp',
     },
     {
       title: 'Мать и дитя',
-      link: 'assets/images/partners/mother.png',
+      link: 'assets/images/partners/mother.webp',
     },
   ];
 

@@ -8,7 +8,7 @@ export const PRODUCTS: Product[] = [
     id: 1,
     title: 'Стеклянный козырек',
     price: 45000,
-    imageSrc: 'assets/images/products/canopy.png',
+    imageSrc: 'assets/images/products/canopy.webp',
     description: 'Ограждения лестниц, проемов, лоджий и террас',
     characteristics: [
       {
@@ -33,7 +33,7 @@ export const PRODUCTS: Product[] = [
     id: 2,
     title: 'Стеклянное ограждение',
     price: 29000,
-    imageSrc: 'assets/images/products/barrier.png',
+    imageSrc: 'assets/images/products/barrier.webp',
     description: 'Ограждения лестниц, проемов, лоджий и террас',
     characteristics: [
       {
@@ -58,7 +58,7 @@ export const PRODUCTS: Product[] = [
     id: 3,
     title: 'Душевая перегородка стеклянная',
     price: 23000,
-    imageSrc: 'assets/images/products/shower.png',
+    imageSrc: 'assets/images/products/shower.webp',
     description: 'Цена указана за перегородку 2000х900мм',
     characteristics: [
       {
@@ -91,7 +91,7 @@ export const PRODUCTS: Product[] = [
     id: 4,
     title: 'Офисная перегородка из закаленного стекла',
     price: 18000,
-    imageSrc: 'assets/images/products/door.png',
+    imageSrc: 'assets/images/products/door.webp',
     description: 'Ограждения лестниц, проемов, лоджий и террас',
     characteristics: [
       {
