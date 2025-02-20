@@ -9,11 +9,9 @@
   }
   <div class="app-menu" [class.mobile]="isNarrow()">
     @for (item of menu(); track item.link) {
-      @if (item.link === '/') {
-        <a [routerLink]="item.link" (click)="onMenuClick()">{{ item.name }}</a>
-      } @else {
-        <a [href]="item.link" (click)="onMenuClick()">{{ item.name }}</a>
-      }
+      <a [routerLink]="getHrefBase(item.link)" [fragment]="getHrefFragment(item.link)" (click)="onMenuClick()">{{
+        item.name
+      }}</a>
     }
   </div>
   <a href="tel:{{ digits }}">{{ phone }}</a>

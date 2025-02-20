@@ -6,6 +6,7 @@ import { SocialButtonsComponent } from '@app/shared/components/social-buttons/so
 import { SvgIconComponent } from '@app/shared/components/app-svg-icon/svg-icon.component';
 import { phoneIcon } from '@app/shared/utils/icons';
 import { LogoComponent } from '@app/shared/components/logo/logo.component';
+import { getHrefBase, getHrefFragment, scrollToElementById } from '@app/shared/utils/functions';
 
 @Component({
   selector: 'app-footer',
@@ -33,4 +34,8 @@ export class FooterComponent {
     },
   ];
   protected readonly phoneIcon = phoneIcon;
+  protected readonly getHrefBase = getHrefBase;
+  protected readonly getHrefFragment = getHrefFragment;
+  protected readonly scrollTo = scrollTo;
+  protected readonly scrollToElementById = scrollToElementById;
 }

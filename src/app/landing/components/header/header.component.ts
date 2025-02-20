@@ -13,6 +13,7 @@ import { NavigationEnd, Router, RouterLink } from '@angular/router';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { filter } from 'rxjs';
 import { MenuBtnComponent } from '@app/shared/components/menu-btn/menu-btn.component';
+import { getHrefBase, getHrefFragment } from '@app/shared/utils/functions';
 
 @Component({
   selector: 'app-header',
@@ -36,23 +37,23 @@ export class HeaderComponent {
     const menu = [
       {
         name: 'О нас',
-        link: '#about',
+        link: '/#about',
       },
       {
         name: 'Товары',
-        link: '#products',
+        link: '/#products',
       },
       {
         name: 'Этапы работы',
-        link: '#steps',
+        link: '/#steps',
       },
       {
         name: 'Наши работы',
-        link: '#works',
+        link: '/#works',
       },
       {
         name: 'Партнеры',
-        link: '#partners',
+        link: '/#partners',
       },
     ];
 
@@ -67,6 +68,8 @@ export class HeaderComponent {
       : menu;
   });
 
+  protected readonly getHrefFragment = getHrefFragment;
+  protected readonly getHrefBase = getHrefBase;
   constructor() {
     const router = inject(Router);
     const destroy = inject(DestroyRef);
