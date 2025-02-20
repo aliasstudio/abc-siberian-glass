@@ -1,6 +1,6 @@
 <div class="d-flex flex-column product">
   <div class="d-flex product__card">
-    <div class="w-50">
+    <div class="w-50 product__card__image">
       <div class="image-container position-relative">
         <img fill [ngSrc]="product().imageSrc" [alt]="product().title" />
       </div>
@@ -17,7 +17,7 @@
             </span>
           </button>
         </a>
-        <app-social-buttons class="ms-3" />
+        <app-social-buttons />
       </div>
       <h2 class="fw-medium mb-3">Описание</h2>
       <h4 class="mb-3">{{ product().description }}</h4>

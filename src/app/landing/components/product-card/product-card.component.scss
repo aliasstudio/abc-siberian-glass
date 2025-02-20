@@ -17,14 +17,29 @@
     padding-bottom: 4rem;
     border-bottom: 2px solid vars.$green;
 
-    .image-container {
-      border-radius: vars.$default-radius * 2;
-      overflow: hidden;
-      padding-bottom: 100%;
+    @media (max-width: 860px) {
+      flex-flow: column;
+    }
+
+    &__image {
+      min-width: 350px;
+
+      @media (max-width: 720px) {
+        min-width: 100%;
+      }
+
+      .image-container {
+        border-radius: vars.$default-radius * 2;
+        overflow: hidden;
+        padding-bottom: 100%;
+      }
     }
 
     &__description {
       &_social {
+        flex-wrap: wrap;
+        gap: 1rem;
+
         button {
           padding: 0.5rem 1rem;
 
@@ -36,6 +51,10 @@
 
       &_characteristics {
         grid-template-columns: repeat(2, 1fr);
+
+        @media (max-width: 425px) {
+          grid-template-columns: 1fr;
+        }
 
         ul {
           list-style: none;
@@ -53,7 +72,10 @@
 
   &__cross {
     gap: 2rem;
-    max-height: 610px;
+
+    @media (max-width: 680px) {
+      flex-wrap: wrap;
+    }
 
     app-product-block {
       height: auto;
