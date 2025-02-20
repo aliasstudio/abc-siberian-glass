@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 
 @Component({
   selector: 'app-menu-btn',
@@ -6,10 +6,9 @@ import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
   styleUrl: './menu-btn.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
-    '[class.active]': 'active()',
-    '(click)': 'active.set(!active())',
+    '[class.active]': 'toggle()',
   },
 })
 export class MenuBtnComponent {
-  active = signal(false);
+  toggle = input(true);
 }

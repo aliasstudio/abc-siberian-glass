@@ -5,14 +5,14 @@
   [class.menu-active]="isDropdownActive()"
 >
   @if (isNarrow()) {
-    <app-menu-btn (click)="onMenuClick()" />
+    <app-menu-btn [toggle]="isDropdownActive()" (click)="onMenuClick()" />
   }
   <div class="app-menu" [class.mobile]="isNarrow()">
     @for (item of menu(); track item.link) {
       @if (item.link === '/') {
-        <a [routerLink]="item.link" (click)="isDropdownActive.set(false)">{{ item.name }}</a>
+        <a [routerLink]="item.link" (click)="onMenuClick()">{{ item.name }}</a>
       } @else {
-        <a [href]="item.link" (click)="isDropdownActive.set(false)">{{ item.name }}</a>
+        <a [href]="item.link" (click)="onMenuClick()">{{ item.name }}</a>
       }
     }
   </div>
