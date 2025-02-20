@@ -39,7 +39,7 @@ footer {
     transition: color .3s ease-in-out;
 
     &:hover {
-      color: #FFD89E;
+      color: vars.$beigeHover;
     }
   }
 
@@ -47,5 +47,9 @@ footer {
     position: relative;
     width: 140px;
     height: 180px;
+  }
+
+  .social {
+    gap: 2rem;
   }
 }

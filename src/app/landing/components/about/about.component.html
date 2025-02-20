@@ -1,7 +1,7 @@
 <section class="container">
   <h1>О нас</h1>
   <div class="about d-flex justify-content-center flex-wrap py-4">
-    @for (item of blocks; track item.id) {
+    @for (item of blocks; track item.title) {
       @defer {
         <app-text-block [icon]="item.icon" [text]="item.text" />
       } @loading (after 2s; minimum 1.5s) {

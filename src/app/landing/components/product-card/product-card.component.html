@@ -12,12 +12,12 @@
         <a href="tel:{{ digits }}">
           <button appMainButton>
             <span class="d-inline-flex align-items-center gap-2">
-              <img src="assets/icons/phone.svg" />
+              <app-svg-icon [icon]="phoneIcon" [width]="21" [height]="21" />
               {{ phone }}
             </span>
           </button>
         </a>
-        <app-social-buttons class="ms-3" [effect]="true" />
+        <app-social-buttons class="ms-3" />
       </div>
       <h2 class="fw-medium mb-3">Описание</h2>
       <h4 class="mb-3">{{ product().description }}</h4>

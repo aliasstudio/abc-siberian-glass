@@ -1,12 +1,13 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
-import { NgOptimizedImage } from '@angular/common';
+import type { SVGIcon } from '@app/shared/utils/constants';
+import { SvgIconComponent } from '@app/shared/components/app-svg-icon/svg-icon.component';
 
 @Component({
   selector: 'app-text-block',
   templateUrl: './text-block.component.html',
   styleUrl: './text-block.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [NgOptimizedImage],
+  imports: [SvgIconComponent],
 })
 export class TextBlockComponent {
   /**
@@ -14,10 +15,9 @@ export class TextBlockComponent {
    */
   size = input<number>(77);
   /**
-   * Имя иконки.
-   * Должна быть помещена в assets/icons/*.*
+   * Иконка
    */
-  icon = input.required<string>();
+  icon = input.required<SVGIcon>();
   /**
    * Текст в блоке
    */

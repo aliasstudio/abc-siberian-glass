@@ -1,14 +1,31 @@
-<div class="d-flex gap-3 align-items-center social">
-  @for (icon of social; track icon.link) {
-    <a
-      role="button"
-      class="btn rounded-circle"
-      target="_blank"
-      [href]="icon.link"
-      [style.height.px]="size()"
-      [style.width.px]="size()"
-    >
-      <img src="assets/icons/{{ icon.name }}" [class.vk]="icon.name === 'vk.svg'" />
-    </a>
-  }
-</div>
+@let isButton = mode() === 'button';
+
+@for (item of social; track item.link) {
+  @let isVkIcon = item.name === 'vk';
+
+  <a
+    role="button"
+    target="_blank"
+    [class]="{
+      'btn': isButton,
+      'rounded-circle': isButton,
+    }"
+    [href]="item.link"
+    [style.height.px]="size()"
+    [style.width.px]="size()"
+  >
+    @if (isVkIcon) {
+      <app-svg-icon
+        [icon]="item.icon"
+        [width]="isButton ? size() / 1.75 : size() * 1.25"
+        [height]="isButton ? size() / 1.75 : size() * 1.25"
+      />
+    } @else {
+      <app-svg-icon
+        [icon]="item.icon"
+        [width]="isButton ? size() / 2 : size()"
+        [height]="isButton ? size() / 2 : size()"
+      />
+    }
+  </a>
+}

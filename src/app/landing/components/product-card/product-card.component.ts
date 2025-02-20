@@ -7,13 +7,15 @@ import { formatCurrency } from '@app/shared/utils/functions';
 import { MainButtonDirective } from '@app/shared/directives/main-button.directive';
 import { PHONE, PHONE_DIGITS } from '@app/app.config';
 import { SocialButtonsComponent } from '@app/shared/components/social-buttons/social-buttons.component';
+import { phoneIcon } from '@app/shared/utils/icons';
+import { SvgIconComponent } from '@app/shared/components/app-svg-icon/svg-icon.component';
 
 @Component({
   selector: 'app-product-card',
   templateUrl: './product-card.component.html',
   styleUrl: './product-card.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [NgOptimizedImage, ProductBlockComponent, MainButtonDirective, SocialButtonsComponent],
+  imports: [NgOptimizedImage, ProductBlockComponent, MainButtonDirective, SocialButtonsComponent, SvgIconComponent],
 })
 export class ProductCardComponent {
   readonly product = input<Product>();
@@ -23,4 +25,5 @@ export class ProductCardComponent {
 
   protected readonly phone = PHONE;
   readonly digits = PHONE_DIGITS;
+  protected readonly phoneIcon = phoneIcon;
 }

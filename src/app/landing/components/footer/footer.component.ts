@@ -4,13 +4,15 @@ import type { NamedLink } from '@app/shared/utils/constants';
 import { PHONE, PHONE_DIGITS } from '@app/app.config';
 import { RouterLink } from '@angular/router';
 import { SocialButtonsComponent } from '@app/shared/components/social-buttons/social-buttons.component';
+import { SvgIconComponent } from '@app/shared/components/app-svg-icon/svg-icon.component';
+import { phoneIcon } from '@app/shared/utils/icons';
 
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [NgOptimizedImage, RouterLink, SocialButtonsComponent],
+  imports: [NgOptimizedImage, RouterLink, SocialButtonsComponent, SvgIconComponent],
 })
 export class FooterComponent {
   readonly phone = PHONE;
@@ -30,4 +32,5 @@ export class FooterComponent {
       link: '#works',
     },
   ];
+  protected readonly phoneIcon = phoneIcon;
 }

@@ -1,32 +1,32 @@
 @use "src/styles/_variables.scss" as vars;
+
 :host {
-  .social {
-    a {
-      width: 42px;
-      height: 42px;
-      background-color: vars.$green;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0.5rem;
-      outline: none;
-      border: none;
-      transition: all .3s cubic-bezier(0.4, 0, 0.2, 1);;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 
+  a {
+    background-color: vars.$green;
+    color: vars.$beige;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    outline: none;
+    border: none;
+    transition: all .3s cubic-bezier(0.4, 0, 0.2, 1);
 
+    &.btn:hover {
+      background-color: #266c29;
+      transform: translateY(-1px);
+      box-shadow: 0 1px 12px rgba(26, 86, 35, 0.25),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.1);
     }
 
-    img {
-      max-width: 100%;
-      max-height: 100%;
+    &:not(.btn):hover {
+      color: vars.$beigeHover;
     }
-  }
-
-  &.effect .social a:hover {
-    background-color: #266c29;
-    transform: translateY(-1px);
-    box-shadow: 0 1px 12px rgba(26, 86, 35, 0.25),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.1);
   }
 }
 

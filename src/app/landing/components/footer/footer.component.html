@@ -10,10 +10,10 @@
   <div class="d-flex flex-column gap-1 social">
     <a href="tel:{{ digits }}">
       <div class="d-flex gap-3 align-items-center">
-        <img src="assets/icons/phone.svg" />
+        <app-svg-icon [icon]="phoneIcon" />
         {{ phone }}
       </div>
     </a>
-    <app-social-buttons [size]="50" />
+    <app-social-buttons class="social" mode="icon" [size]="32" />
   </div>
 </footer>
