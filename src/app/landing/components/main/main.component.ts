@@ -1,12 +1,12 @@
 import { ChangeDetectionStrategy, Component, HostListener, signal } from '@angular/core';
-import { NgOptimizedImage } from '@angular/common';
+import { LogoComponent } from '@app/shared/components/logo/logo.component';
 
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
   styleUrl: './main.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [NgOptimizedImage],
+  imports: [LogoComponent],
   host: { '[style.height]': 'windowHeight() + "px"' },
 })
 export class MainComponent {

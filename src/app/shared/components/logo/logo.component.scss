@@ -1,0 +1,17 @@
+@use "src/styles/_variables.scss" as vars;
+
+:host {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: 100%;
+
+  h1 {
+    font-family: 'CraftworkGrotesk', sans-serif;
+    font-weight: 600;
+    color: vars.$beige;
+    margin: -12px 0 0;
+    user-select: none;
+  }
+}
