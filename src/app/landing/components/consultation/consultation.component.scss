@@ -1,4 +1,5 @@
 @use "src/styles/_variables.scss" as vars;
+@use "sass:color" as color;
 
 :host {
   display: block;
@@ -11,19 +12,52 @@
   margin: 3rem 0;
   @include vars.glass();
 
+  @media (max-width: 720px) {
+    padding: 1.25rem;
+  }
+
   &__controls {
     width: 100%;
     max-width: 600px;
+    align-items: flex-end;
+
+    @media (max-width: 480px) {
+      align-items: center;
+    }
 
     input {
-      border: 2px solid transparent;
       background-color: vars.$beige;
       font-size: 1.5rem;
       padding-inline: 2rem;
+      border: none;
       transition: all .3s ease-in-out;
 
+      @media (max-width: 720px) {
+        font-size: 1.25rem;
+      }
+
       &.ng-touched.ng-invalid {
-        border-color: vars.$invalid;
+        box-shadow: color.adjust(vars.$invalid, $alpha: -0.2) 0 1px 10px 3px;
+      }
+    }
+  }
+
+  .success-msg {
+    opacity: 0;
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+    color: vars.$beige;
+    transition: all .3s ease-in-out;
+  }
+
+  .submit-btn {
+    .spinner-border {
+      display: none;
+    }
+
+    &.loading {
+      .spinner-border {
+        display: block;
       }
     }
   }

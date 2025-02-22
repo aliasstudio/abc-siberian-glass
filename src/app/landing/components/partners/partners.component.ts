@@ -20,8 +20,8 @@ export class PartnersComponent implements AfterViewInit {
       link: 'assets/images/partners/rzd.webp',
     },
     {
-      title: 'СИБУР',
-      link: 'assets/images/partners/sibur.webp',
+      title: 'ПЖДТ',
+      link: 'assets/images/partners/pzdt.webp',
     },
     {
       title: 'World Class',
@@ -43,6 +43,10 @@ export class PartnersComponent implements AfterViewInit {
       title: 'Мать и дитя',
       link: 'assets/images/partners/mother.webp',
     },
+    {
+      title: 'BELAVI',
+      link: 'assets/images/partners/bv.webp',
+    },
   ];
 
   ngAfterViewInit(): void {
@@ -61,7 +65,6 @@ export class PartnersComponent implements AfterViewInit {
         prevEl: '.partners_slider .slider-navigation__prev',
         nextEl: '.partners_slider .slider-navigation__next',
       },
-      lazyPreloadPrevNext: 2,
       injectStyles: [
         `
             :host .swiper-horizontal {

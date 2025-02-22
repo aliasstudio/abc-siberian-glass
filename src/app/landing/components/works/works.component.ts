@@ -64,7 +64,6 @@ export class WorksComponent implements AfterViewInit {
         prevEl: '.works_slider .slider-navigation__prev',
         nextEl: '.works_slider .slider-navigation__next',
       },
-      lazyPreloadPrevNext: 2,
       injectStyles: [
         `
             :host .swiper-horizontal {

@@ -28,6 +28,10 @@ header {
     border-radius: vars.$default-radius;
     transform: translateX(-50%);
     transition: background-color .3s ease-in-out, box-shadow .3s ease-in-out;
+
+    @media (max-width: 720px) {
+      width: calc(100% - #{vars.$default-padding} / 2);
+    }
   }
 
   &.glass{
@@ -41,7 +45,7 @@ header {
     color: vars.$text-color;
 
     a:hover {
-      color: #258034;
+      color: vars.$lightGreen;
     }
   }
 

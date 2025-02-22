@@ -3,7 +3,7 @@
   <div class="swiper__wrapper">
     <swiper-container #swiperContainer init="false">
       @for (product of products; track product.id) {
-        <swiper-slide class="h-100">
+        <swiper-slide class="h-auto">
           <app-product-block [product]="product" />
         </swiper-slide>
       }
@@ -26,8 +26,5 @@
         </svg>
       </div>
     </div>
-  </div>
-  <div class="d-flex align-items-center justify-content-center">
-    <button appMainButton>Скачать весь каталог</button>
   </div>
 </section>

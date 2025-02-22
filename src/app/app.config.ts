@@ -18,6 +18,7 @@ import { tgIcon, vkIcon, whatsappIcon } from '@app/shared/utils/icons';
 
 const APP_TITLE = 'ABC Siberian Glass';
 
+export const EMAIL = 'info@abcsibglass.ru';
 export const PHONE = '+7 (961) 208-39-98';
 export const PHONE_DIGITS = PHONE.replace(/[^+\d]/g, '');
 export const SOCIAL: Array<NamedIconLink> = [

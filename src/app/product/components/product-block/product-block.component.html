@@ -1,5 +1,5 @@
 <div class="d-flex flex-column gap-4 h-100 w-100 justify-content-between product-card">
-  <div class="thumbnail">
+  <div class="thumbnail" style="cursor: pointer" [routerLink]="['/product', product().id]">
     <img fill [ngSrc]="product().imageSrc" [alt]="product().title" />
   </div>
   <span class="title">{{ product().title }}</span>

@@ -1,12 +1,12 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import type { NamedLink } from '@app/shared/utils/constants';
-import { PHONE, PHONE_DIGITS } from '@app/app.config';
+import { EMAIL, PHONE, PHONE_DIGITS } from '@app/app.config';
 import { RouterLink } from '@angular/router';
 import { SocialButtonsComponent } from '@app/shared/components/social-buttons/social-buttons.component';
 import { SvgIconComponent } from '@app/shared/components/app-svg-icon/svg-icon.component';
-import { phoneIcon } from '@app/shared/utils/icons';
+import { emailIcon, phoneIcon } from '@app/shared/utils/icons';
 import { LogoComponent } from '@app/shared/components/logo/logo.component';
-import { getHrefBase, getHrefFragment, scrollToElementById } from '@app/shared/utils/functions';
+import { getHrefBase, getHrefFragment } from '@app/shared/utils/functions';
 
 @Component({
   selector: 'app-footer',
@@ -16,6 +16,7 @@ import { getHrefBase, getHrefFragment, scrollToElementById } from '@app/shared/u
   imports: [RouterLink, SocialButtonsComponent, SvgIconComponent, LogoComponent],
 })
 export class FooterComponent {
+  readonly email = EMAIL;
   readonly phone = PHONE;
   readonly digits = PHONE_DIGITS;
 
@@ -34,8 +35,8 @@ export class FooterComponent {
     },
   ];
   protected readonly phoneIcon = phoneIcon;
+  protected readonly emailIcon = emailIcon;
+
   protected readonly getHrefBase = getHrefBase;
   protected readonly getHrefFragment = getHrefFragment;
-  protected readonly scrollTo = scrollTo;
-  protected readonly scrollToElementById = scrollToElementById;
 }

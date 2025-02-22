@@ -48,6 +48,10 @@ footer {
     width: 140px;
     height: 180px;
 
+    app-logo:hover {
+      color: vars.$beigeHover;
+    }
+
     @media (max-width: 444px) {
       app-logo {
         justify-content: center;
@@ -56,6 +60,6 @@ footer {
   }
 
   .social {
-    gap: 2rem;
+    gap: 1rem;
   }
 }

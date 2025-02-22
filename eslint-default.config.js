@@ -168,7 +168,7 @@ const tsConfig = [
           modifiers: ['const'],
         },
         {
-          selector: ['objectLiteralProperty', 'variable', 'method', 'function'],
+          selector: ['objectLiteralProperty', 'variable', 'method', 'function', 'property'],
           format: null,
           filter: {
             regex: `.*(FF).*`,

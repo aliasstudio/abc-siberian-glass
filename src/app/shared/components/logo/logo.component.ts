@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
   selector: 'app-logo',
@@ -6,9 +6,4 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
   styleUrl: './logo.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class LogoComponent {
-  /**
-   * Размер шрифта в логотипе в px
-   */
-  size = input<number>(112);
-}
+export class LogoComponent {}

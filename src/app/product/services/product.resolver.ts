@@ -89,7 +89,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: 4,
-    title: 'Офисная перегородка из закаленного стекла',
+    title: 'Цельностеклянная офисная перегородка',
     price: 18000,
     imageSrc: 'assets/images/products/door.webp',
     description: 'Ограждения лестниц, проемов, лоджий и террас',

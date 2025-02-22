@@ -1,9 +1,7 @@
 <section class="container">
   <div class="d-flex flex-column align-items-center consultation">
-    <form class="consultation__controls d-flex flex-column align-items-end" [formGroup]="form">
-      <h2 class="fw-normal text-center mb-4 text-secondary">
-        Получите бесплатную консультацию администратора и задайте уточняющие вопросы
-      </h2>
+    <form class="consultation__controls d-flex flex-column" [formGroup]="form">
+      <h2 class="fw-normal text-center mb-4 text-secondary">Оставьте заявку и получите консультацию</h2>
       <div class="input-group input-group-lg mb-4">
         <input type="text" class="form-control" placeholder="Ваше имя" aria-label="name" formControlName="nameFF" />
       </div>
@@ -22,13 +20,13 @@
           class="form-control"
           prefix="+7 "
           mask="(000) 000 00 00"
-          placeholder="Ваш номер телефона"
+          placeholder="Номер телефона"
           aria-label="phone"
           formControlName="telFF"
           [instantPrefix]="false"
         />
       </div>
-      <div class="input-group input-group-lg mb-4">
+      <div class="input-group input-group-lg">
         <input
           type="text"
           class="form-control"
@@ -37,7 +35,16 @@
           formControlName="contactFF"
         />
       </div>
-      <button appMainButton themeColor="alternative" [disabled]="form.invalid" (click)="submitClick.next()">
+      <span #successMsg class="success-msg">Заявка успешно отправлена!</span>
+      <button
+        #submitBtn
+        class="submit-btn"
+        appMainButton
+        themeColor="alternative"
+        [disabled]="form.invalid || submitBtn.classList.contains('loading')"
+        (click)="submitClick.next()"
+      >
+        <div class="spinner-border" role="status"></div>
         Получить консультацию
       </button>
     </form>

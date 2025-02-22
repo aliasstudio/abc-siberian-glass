@@ -99,7 +99,9 @@ export class HeaderComponent {
   }
 
   protected onMenuClick(): void {
-    document.querySelector('body').classList.toggle('lock');
-    this.isDropdownActive.set(!this.isDropdownActive());
+    if (this.isNarrow()) {
+      document.querySelector('body').classList.toggle('lock');
+      this.isDropdownActive.set(!this.isDropdownActive());
+    }
   }
 }
