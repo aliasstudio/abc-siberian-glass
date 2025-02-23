@@ -70,6 +70,7 @@ export class HeaderComponent {
 
   protected readonly getHrefFragment = getHrefFragment;
   protected readonly getHrefBase = getHrefBase;
+
   constructor() {
     const router = inject(Router);
     const destroy = inject(DestroyRef);
@@ -79,11 +80,7 @@ export class HeaderComponent {
         filter(event => event instanceof NavigationEnd),
         takeUntilDestroyed(destroy),
       )
-      .subscribe(() => {
-        this.isProductPage.set(location.pathname.includes('product'));
-        /** Если попадаем на страницу товара скролим всегда вверх, чтобы отобразить карточку */
-        this.isProductPage() && window.scrollTo(0, 0);
-      });
+      .subscribe(() => this.isProductPage.set(location.pathname.includes('product')));
   }
 
   @HostListener('window:scroll', ['$event'])

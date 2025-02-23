@@ -4,12 +4,14 @@ import { ActivatedRoute, NavigationEnd, Router, RouterOutlet } from '@angular/ro
 import { HeaderComponent } from '@app/landing/components/header/header.component';
 import { FooterComponent } from '@app/landing/components/footer/footer.component';
 import { filter } from 'rxjs';
+import { LocationStrategy, PathLocationStrategy } from '@angular/common';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  imports: [RouterOutlet, HeaderComponent, FooterComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [RouterOutlet, HeaderComponent, FooterComponent],
+  providers: [Location, { provide: LocationStrategy, useClass: PathLocationStrategy }],
 })
 export class AppComponent implements OnInit {
   private router = inject(Router);
@@ -18,6 +20,9 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.router.events.pipe(filter(event => event instanceof NavigationEnd)).subscribe(() => {
       const fragment = this.activatedRoute.firstChild?.snapshot.fragment;
+
+      /** Если попадаем на страницу товара скролим всегда вверх, чтобы отобразить карточку */
+      location.pathname.includes('product') && window.scrollTo(0, 0);
 
       fragment &&
         setTimeout(() => {
