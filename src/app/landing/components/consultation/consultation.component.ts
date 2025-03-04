@@ -1,7 +1,7 @@
 import type { ElementRef, OnInit } from '@angular/core';
 import { ChangeDetectionStrategy, Component, DestroyRef, inject, viewChild } from '@angular/core';
 import { MainButtonDirective } from '@app/shared/directives/main-button.directive';
-import { catchError, debounceTime, delay, finalize, of, Subject, switchMap, tap } from 'rxjs';
+import { catchError, debounceTime, delay, of, Subject, switchMap, tap } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import type { FormGroup } from '@angular/forms';
 import { FormBuilder, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
@@ -56,18 +56,21 @@ export class ConsultationComponent implements OnInit {
           successMsgEl.classList.remove('opacity-100');
 
           return this.httpClient.post(BACKEND_ROOT + '/sendMail', { ...value, telFF: '+7' + value.telFF }).pipe(
-            tap(() => successMsgEl.classList.add('opacity-100')),
+            catchError(() => {
+              submitBtnEl.classList.remove('loading');
+              successMsgEl.innerText = 'Ошибка при отправке запроса!';
+              successMsgEl.classList.add('opacity-100');
+
+              return of(false);
+            }),
+            tap(() => {
+              submitBtnEl.classList.remove('loading');
+              successMsgEl.classList.add('opacity-100');
+            }),
             delay(10000),
             tap(() => successMsgEl.classList.remove('opacity-100')),
           );
         }),
-        catchError(() => {
-          successMsgEl.innerText = 'Ошибка при отправке запроса!';
-          successMsgEl.classList.add('opacity-100');
-
-          return of(false);
-        }),
-        finalize(() => submitBtnEl.classList.remove('loading')),
         takeUntilDestroyed(this.destroyRef),
       )
       .subscribe();
