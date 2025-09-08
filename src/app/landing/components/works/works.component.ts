@@ -1,10 +1,8 @@
 import type { AfterViewInit } from '@angular/core';
 import { ChangeDetectionStrategy, Component, CUSTOM_ELEMENTS_SCHEMA, type ElementRef, viewChild } from '@angular/core';
-import { MainButtonDirective } from '@app/shared/directives/main-button.directive';
 import type { SwiperContainer } from 'swiper/element';
 // @ts-ignore type
 import type { SwiperOptions } from 'swiper';
-import { scrollToElementById } from '@app/shared/utils/functions';
 import { NgOptimizedImage } from '@angular/common';
 import { GallerizeDirective } from 'ng-gallery/lightbox';
 
@@ -13,12 +11,10 @@ import { GallerizeDirective } from 'ng-gallery/lightbox';
   templateUrl: './works.component.html',
   styleUrl: './works.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [MainButtonDirective, NgOptimizedImage, GallerizeDirective],
+  imports: [NgOptimizedImage, GallerizeDirective],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class WorksComponent implements AfterViewInit {
-  protected readonly scrollTo = scrollToElementById;
-
   protected readonly swiper = viewChild<ElementRef<SwiperContainer>>('swiperContainer');
 
   protected readonly slides = [
